@@ -7,12 +7,11 @@ jps -lm
 
 hdfs dfsadmin -report
 
-hdfs dfs -mkdir -p /apps/spark
+#hdfs dfs -mkdir -p /apps/spark
 zip /usr/local/spark/jars/spark-jars.zip /usr/local/spark/jars/*
-hadoop fs -put /usr/local/spark/jars/spark-jars.zip  /apps/spark
+#hadoop fs -put /usr/local/spark/jars/spark-jars.zip  /apps/spark
 
 hadoop fs -mkdir /sparklog
-hadoop fs -mkdir /sparkhistory
 $SPARK_HOME/sbin/start-history-server.sh
 #$SPARK_HOME/sbin/start-all.sh
 

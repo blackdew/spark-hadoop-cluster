@@ -1,4 +1,4 @@
-M centos:7
+FROM centos:7
 USER root
 
 # os 기본툴 설치 & JAVA 설치
