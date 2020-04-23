@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # VARIABLES
-#IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:1.0"
-IMG_NAME=$1
+IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:1.1"
+#IMG_NAME=$1
 HOST_PREFIX="mycluster"
 NETWORK_NAME=$HOST_PREFIX
 
