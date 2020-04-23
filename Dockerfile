@@ -1,10 +1,11 @@
-#
 FROM centos:7
 USER root
 
 # os 기본툴 설치 & JAVA 설치
-RUN yum -y update && yum install -y openssh-server openssh-clients wget
-RUN  yum -y update && yum -y install vim net-tools zip
+RUN yum -y update \
+		&& yum install -y openssh-server openssh-clients \
+		&& yum -y install vim net-tools zip wget \
+		&& yum clean all
 
 # 하둡 설치
 RUN wget -O /hadoop.tar.gz http://apache.mirror.cdnetworks.com/hadoop/common/hadoop-2.7.7/hadoop-2.7.7.tar.gz \
@@ -20,7 +21,9 @@ RUN wget -O /spark.tar.gz http://apache.mirror.cdnetworks.com/spark/spark-2.4.5/
 
 #scala 설치
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.rpm \
-		&& yum install -y scala-2.11.8.rpm
+		&& yum install -y scala-2.11.8.rpm \
+		&& yum clean all \
+		&& rm scala-2.11.8.rpm
 
 # java 설치 및 설정
 RUN yum install -y java-1.8.0-openjdk-devel 
@@ -45,7 +48,7 @@ RUN mkdir -p $HADOOP_HOME/hdfs/namenode \
 COPY config/ /tmp/
 
 RUN mv /tmp/ssh_config $HOME/.ssh/config \
-	&& mv /tmp/hadoop-env.sh $HADOOP_HOME/etc/hadoop/hadoop-env.sh \
+    && mv /tmp/hadoop-env.sh $HADOOP_HOME/etc/hadoop/hadoop-env.sh \
     && mv /tmp/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml \
     && mv /tmp/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml \
     && mv /tmp/mapred-site.xml $HADOOP_HOME/etc/hadoop/mapred-site.xml.template \
@@ -61,9 +64,8 @@ RUN mv /tmp/ssh_config $HOME/.ssh/config \
 ADD scripts/spark-services.sh $HADOOP_HOME/spark-services.sh
 
 RUN chmod 744 -R $HADOOP_HOME
-
-
 RUN $HADOOP_HOME/bin/hdfs namenode -format
+
 
 EXPOSE 50010 50020 50070 50075 50090 8020 9000
 EXPOSE 10020 19888
