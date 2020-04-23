@@ -19,6 +19,20 @@
         <value>mycluster-master</value>
     </property>
 
+<!-- yarn log Setup -->
+  <property>
+    <name>yarn.log-aggregation-enable</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>yarn.nodemanager.log-dirs</name>
+    <value>/tmp/yarn_logs/</value>
+  </property>
+
+
+
+
 <property>
     <name>yarn.resourcemanager.scheduler.address</name>
     <value>mycluster-master:8030</value>
