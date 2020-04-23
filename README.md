@@ -4,14 +4,20 @@
 ## docker-spark-yarn-cluster 
 This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on yarn. 
 
-## Build image
+## Download script
+`wget https://github.com/sunny-hwang/spark-hadoop-cluster/blob/master/startHadoopCluster.sh`
+
+## Build image (option)
 - Clone the repo 
 - cd inside ../spark-hadoop-cluster 
 - Run `docker build -t sunny-hwang/spark-hadoop-cluster .`
 
 ## Run  
-- Run `./startHadoopCluster.sh <image-name>`
+- Run container `./startHadoopCluster.sh <the number of slave nodes>`
 - Access to master `docker exec -it mycluster-master bash`
+- Edit hadoop slaves file `$HADOOP_HOME/etc/hadoop/slaves` (Insert your slave nodes name)
+- Run hadoop cluster `$HADOOP_HOME/spark-services.sh`
+
 
 ### Run spark applications on cluster : 
 - spark-shell : `spark-shell --master yarn --deploy-mode client`

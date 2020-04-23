@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # VARIABLES
-IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:1.1"
-#IMG_NAME=$1
+IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:latest"
 HOST_PREFIX="mycluster"
 NETWORK_NAME=$HOST_PREFIX
 
-N=${1:-2}
+#N=${1:-2}
+N=$1
 NET_QUERY=$(docker network ls | grep -i $NETWORK_NAME)
 if [ -z "$NET_QUERY" ]; then
 	docker network create --driver=bridge $NETWORK_NAME
@@ -31,7 +31,7 @@ docker run --name $HADOOP_MASTER -h $HADOOP_MASTER --net=$NETWORK_NAME \
 
 
 # START MULTI-NODES CLUSTER
-docker exec -it $HADOOP_MASTER "/usr/local/hadoop/spark-services.sh"
+#docker exec -it $HADOOP_MASTER "/usr/local/hadoop/spark-services.sh"
 
 
 
