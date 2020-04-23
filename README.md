@@ -5,11 +5,11 @@ This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on
 
 ## Build image
 - Clone the repo 
-- cd inside ../docker-spark-yarn-cluster 
-- Run `docker build -t pierrekieffer/spark-hadoop-cluster .`
+- cd inside ../spark-hadoop-cluster 
+- Run `docker build -t sunny-hwang/spark-hadoop-cluster .`
 
 ## Run  
-- Run `./startHadoopCluster.sh`
+- Run `./startHadoopCluster.sh <image-name>`
 - Access to master `docker exec -it mycluster-master bash`
 
 ### Run spark applications on cluster : 
@@ -18,6 +18,7 @@ This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on
 
 - Access to Hadoop cluster Web UI : <container ip>:8088 
 - Access to spark Web UI : <container ip>:8080
+- Access to spark history Web UI : <container ip>:18080
 - Access to hdfs Web UI : <container ip>:50070
   
 ## Stop 
