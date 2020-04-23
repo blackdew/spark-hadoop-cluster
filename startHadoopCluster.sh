@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # VARIABLES
-IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:1.0"
+#IMG_NAME="sunnydockerhub/sunny-spark-hadoop-cluster:1.0"
+IMG_NAME=$1
 HOST_PREFIX="mycluster"
 NETWORK_NAME=$HOST_PREFIX
 
@@ -25,7 +26,7 @@ done
 HADOOP_MASTER="$HOST_PREFIX"-master
 docker run --name $HADOOP_MASTER -h $HADOOP_MASTER --net=$NETWORK_NAME \
 		-p  8088:8088  -p 50070:50070 -p 50090:50090 \
-		-p  8080:8080 \
+		-p  18080:18080 \
 		-itd "$IMG_NAME"
 
 
