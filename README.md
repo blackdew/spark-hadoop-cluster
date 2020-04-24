@@ -6,6 +6,7 @@ This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on
 
 ## Download script
 `wget https://github.com/sunny-hwang/spark-hadoop-cluster/blob/master/startHadoopCluster.sh`
+`chmod +x startHadoopCluster.sh`
 
 ## Build image (option)
 - Clone the repo 
