@@ -16,7 +16,8 @@ This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on
 ## Run  
 - Run container `./startHadoopCluster.sh <the number of slave nodes>`
 - Access to master `docker exec -it mycluster-master bash`
-- Edit hadoop slaves file `$HADOOP_HOME/etc/hadoop/slaves` (Insert your slave nodes name)
+- Edit hadoop slaves file `vim $HADOOP_HOME/etc/hadoop/slaves` (Insert your slave nodes name)
+- Edit hadoop replication factor `vim $HADOOP_HOME/etc/hadoop/hdfs-site.xml`
 - Run hadoop cluster `$HADOOP_HOME/spark-services.sh`
 
 
