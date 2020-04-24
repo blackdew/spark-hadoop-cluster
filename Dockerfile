@@ -66,6 +66,8 @@ ADD scripts/spark-services.sh $HADOOP_HOME/spark-services.sh
 RUN chmod 744 -R $HADOOP_HOME
 RUN $HADOOP_HOME/bin/hdfs namenode -format
 
+# Docker autobuild test
+RUN echo "hihi"
 
 EXPOSE 50010 50020 50070 50075 50090 8020 9000
 EXPOSE 10020 19888
