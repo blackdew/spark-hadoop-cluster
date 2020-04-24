@@ -1,11 +1,12 @@
-<<<<<<< HEAD
+
 # Docker hadoop yarn cluster for spark 2.4.1
 
 ## docker-spark-yarn-cluster 
 This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on yarn. 
 
 ## Download script
-`wget https://github.com/sunny-hwang/spark-hadoop-cluster/blob/master/startHadoopCluster.sh`
+- `wget -O startHadoopCluster.sh https://github.com/sunny-hwang/spark-hadoop-cluster/blob/master/startHadoopCluster.sh?raw=true`
+- `chmod +x startHadoopCluster.sh`
 
 ## Build image (option)
 - Clone the repo 
@@ -32,10 +33,3 @@ This application allows to deploy multi-nodes hadoop cluster with spark 2.4.1 on
 - `docker stop $(docker ps -a -q)`
 - `docker container prune`
 
-
-
-
-
-=======
-# spark-hadoop-cluster
->>>>>>> 3a92b4f925b9304243da7cd477760cf9b1cf4447
